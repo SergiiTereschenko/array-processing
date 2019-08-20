@@ -67,7 +67,17 @@ public class ArrayProcessing {
      * @return array with common elements from first and second arrays
      */
     public int[] commonElements(int[] arr1, int[] arr2) {
-        return null;
+        int[] result = new int[arr1.length + arr2.length];
+        int commonElementsNumber = 0;
+        for (int arr1Element : arr1) {
+            for (int arr2Element : arr2) {
+                if (arr1Element == arr2Element) {
+                    result[commonElementsNumber] = arr1Element;
+                    commonElementsNumber++;
+                }
+            }
+        }
+        return Arrays.copyOf(result, commonElementsNumber);
     }
 
     /**
