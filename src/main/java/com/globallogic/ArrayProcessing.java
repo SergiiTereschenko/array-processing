@@ -110,6 +110,15 @@ public class ArrayProcessing {
      * @return - sorted array of elements on even positions
      */
     public int[] sortEvenPositionArray(int[] arr) {
-        return null;
+        for (int i = 0; i < arr.length - 1; i = i + 2) {
+            for (int j = 0; j < arr.length - i - 2; j = j + 2) {
+                if (arr[j] > arr[j + 2]) {
+                    int tmp = arr[j];
+                    arr[j] = arr[j + 2];
+                    arr[j + 2] = tmp;
+                }
+            }
+        }
+        return arr;
     }
 }
