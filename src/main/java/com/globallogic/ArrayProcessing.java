@@ -1,5 +1,7 @@
 package com.globallogic;
 
+import java.util.Arrays;
+
 public class ArrayProcessing {
 
     /**
@@ -16,7 +18,22 @@ public class ArrayProcessing {
      * @return - array with elements that don't have duplicates
      */
     public int[] uniqueElements(int[] arr) {
-        return null;
+        int[] resultArr = new int[arr.length];
+        int uniqueElementsCounter = 0;
+        for (int i : arr) {
+            boolean isElementUnique = true;
+            for (int j = 0; j < uniqueElementsCounter; j++) {
+                if (i == resultArr[j]) {
+                    isElementUnique = false;
+                    break;
+                }
+            }
+            if (isElementUnique) {
+                resultArr[uniqueElementsCounter] = i;
+                uniqueElementsCounter++;
+            }
+        }
+        return Arrays.copyOf(resultArr, uniqueElementsCounter);
     }
 
 
