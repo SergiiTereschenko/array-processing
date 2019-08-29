@@ -49,10 +49,28 @@ public class ArrayProcessing {
      * @return array with not common elements from input arrays
      */
     public int[] uniqueElementsMergeArray(int[] arr1, int[] arr2) {
-        int[] result = new int[arr1.length + arr2.length];
-        System.arraycopy(arr1, 0, result, 0, arr1.length);
-        System.arraycopy(arr2, 0, result, arr1.length, arr2.length);
-        return uniqueElements(result);
+        int uniqueElementCounter = 0;
+        int[] resultArr = new int[arr1.length + arr2.length];
+        uniqueElementCounter = getUniqueElements(arr2, arr1, uniqueElementCounter, resultArr);
+        uniqueElementCounter = getUniqueElements(arr1, arr2, uniqueElementCounter, resultArr);
+        return Arrays.copyOf(resultArr, uniqueElementCounter);
+    }
+
+    private int getUniqueElements(int[] arr1, int[] arr2, int uniqueElementCounter, int[] resultArr) {
+        for (int arr1Element : arr2) {
+            boolean isElementUnique = true;
+            for (int arr2Element : arr1) {
+                if (arr1Element == arr2Element) {
+                    isElementUnique = false;
+                    break;
+                }
+            }
+            if (isElementUnique) {
+                resultArr[uniqueElementCounter] = arr1Element;
+                uniqueElementCounter++;
+            }
+        }
+        return uniqueElementCounter;
     }
 
     /**
