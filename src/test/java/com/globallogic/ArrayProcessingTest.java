@@ -49,7 +49,7 @@ class ArrayProcessingTest {
     @Test
     void uniqueElementsMergeArray() {
         int[] actual = unit.uniqueElementsMergeArray(new int[]{1, 2, 4, 5}, new int[]{1, 3, 7, 5});
-        assertThat(actual).containsExactlyInAnyOrder(2, 3, 7);
+        assertThat(actual).containsExactlyInAnyOrder(2, 3, 4, 7);
     }
 
     @Test
