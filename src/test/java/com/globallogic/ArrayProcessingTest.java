@@ -25,13 +25,13 @@ class ArrayProcessingTest {
     @Test
     void uniqueElementsArray() {
         int[] actual = unit.uniqueElements(new int[]{1, 2, 4, 2, 5});
-        assertThat(actual).containsOnlyOnce(1, 2, 4, 5);
+        assertThat(actual).containsExactlyInAnyOrder(1, 2, 4, 5);
     }
 
     @Test
     void uniqueElementsArrayWithAlreadyUniqueElements() {
         int[] actual = unit.uniqueElements(new int[]{1, 2, 3, 4});
-        assertThat(actual).containsOnlyOnce(1, 2, 3, 4);
+        assertThat(actual).containsExactlyInAnyOrder(1, 2, 3, 4);
     }
 
     @Test
@@ -43,26 +43,26 @@ class ArrayProcessingTest {
     @Test
     void uniqueElementsArrayWithSeveralUniqueElements() {
         int[] actual = unit.uniqueElements(new int[]{1, 1, 2, 3, 2, 4, 2, 5});
-        assertThat(actual).containsOnlyOnce(1, 2, 3, 4, 5);
+        assertThat(actual).containsExactlyInAnyOrder(1, 2, 3, 4, 5);
     }
 
     @Test
     void uniqueElementsMergeArray() {
         int[] actual = unit.uniqueElementsMergeArray(new int[]{1, 2, 4, 5}, new int[]{1, 3, 7, 5});
-        assertThat(actual).containsOnlyOnce(2, 3, 7);
+        assertThat(actual).containsExactlyInAnyOrder(2, 3, 7);
     }
 
     @Test
     void uniqueElementsMergeArrayTwoUniqueArrays() {
         int[] actual = unit.uniqueElementsMergeArray(new int[]{1, 2, 3}, new int[]{4, 5, 6});
-        assertThat(actual).containsOnlyOnce(1, 2, 3, 4, 5, 6);
+        assertThat(actual).containsExactlyInAnyOrder(1, 2, 3, 4, 5, 6);
     }
 
     @ParameterizedTest
     @MethodSource("arraysMethodSource")
     void uniqueElementsMergeArrayOneArrayIsEmpty(int[] arr1, int[] arr2) {
         int[] actual = unit.uniqueElementsMergeArray(arr1, arr2);
-        assertThat(actual).containsOnlyOnce(1, 2, 3);
+        assertThat(actual).containsExactlyInAnyOrder(1, 2, 3);
     }
 
     @Test
@@ -74,13 +74,13 @@ class ArrayProcessingTest {
     @Test
     void commonElements() {
         int[] actual = unit.commonElements(new int[]{1, 2, 3}, new int[]{2, 3, 4});
-        assertThat(actual).containsOnlyOnce(2, 3);
+        assertThat(actual).containsExactlyInAnyOrder(2, 3);
     }
 
     @Test
     void commonElementsTheSameArrays() {
         int[] actual = unit.commonElements(new int[]{1, 2, 3}, new int[]{1, 2, 3});
-        assertThat(actual).containsOnlyOnce(1, 2, 3);
+        assertThat(actual).containsExactlyInAnyOrder(1, 2, 3);
     }
 
     @Test
