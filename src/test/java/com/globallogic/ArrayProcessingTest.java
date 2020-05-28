@@ -47,6 +47,12 @@ class ArrayProcessingTest {
     }
 
     @Test
+    void uniqueElementsArrayWithOnlyOneValue() {
+        int[] actual = unit.uniqueElements(new int[]{1, 1, 1, 1, 1});
+        assertThat(actual).hasSize(1).contains(1);
+    }
+
+    @Test
     void uniqueElementsMergeArray() {
         int[] actual = unit.uniqueElementsMergeArray(new int[]{1, 2, 4, 5}, new int[]{1, 3, 7, 5});
         assertThat(actual).containsExactlyInAnyOrder(2, 3, 4, 7);
